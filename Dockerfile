@@ -10,7 +10,8 @@ USER root
 # Install the liquibase
 RUN mkdir /opt/database
 RUN cd /opt/liquibase/ \
-	&& tar -xzf liquibase-*-bin.tar.gz \
+	&& tar -xzf liquibase-${LIQUIBASE_VERSION}-bin.tar.gz \
+	&& rm -rf liquibase-${LIQUIBASE_VERSION}-bin.tar.gz \
     && cp /opt/liquibase/sdk/lib-sdk/slf4j-api-*.jar /opt/liquibase/lib \
     && rm -rf /opt/liquibase/sdk
     
